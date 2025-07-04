@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        select {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+        img {
+            border: 2px solid black;
+            max-width: 100%;
+            height: auto;
+            display: none;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body onload="showDefaultImage()">
+    <h1 style="font-size: 24px; font-weight: bold;">选择支付方式</h1>
+    <select id="imageSelector">
+        <option value="2.jpg">银联</option>
+        <option value="3.jpg">工商</option>
+        <option value="4.jpg">支付宝</option>
+        <option value="5.jpg">微信</option>
+        <option value="6.jpg">数字人民币</option>
+    </select>
+    <br><br>
+    <img id="selectedImage" src="" alt="Selected Image">
+    <script>
+        function showDefaultImage() {
+            document.getElementById("imageSelector").value = "2.jpg";
+            document.getElementById("selectedImage").src = "2.jpg";
+            document.getElementById("selectedImage").style.display = "block";
+        }
+        document.getElementById("imageSelector").addEventListener("change", function() {
+            var selectedImage = this.value;
+            document.getElementById("selectedImage").src = selectedImage;
+            document.getElementById("selectedImage").style.display = "block";
+        });
+    </script>
+</body>
+</html>
